@@ -1,5 +1,3 @@
-package modelos;
-
 /*
  * The MIT License
  *
@@ -23,20 +21,16 @@ package modelos;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package modelos;
 
 /**
  *
  * @author luis
  */
-public class Demo {
-    
-    
-  
-    public static void main(String... args) {
-        
-    }
-    
-    public static void main2(String[] args) {
+public class Labrador extends Perro{
+
+    @Override
+    public void moverse() {
         
     }
     

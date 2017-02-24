@@ -1,5 +1,3 @@
-package modelos;
-
 /*
  * The MIT License
  *
@@ -23,21 +21,20 @@ package modelos;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package modelos.personas;
+
+import modelos.interfaces.Caminar;
 
 /**
  *
  * @author luis
  */
-public class Demo {
-    
-    
-  
-    public static void main(String... args) {
-        
-    }
-    
-    public static void main2(String[] args) {
-        
+public class Adulto implements Caminar{
+
+    @Override
+    public void moverse() {
+        System.out.println("Me muevo como adulto");
+       
     }
     
 }

@@ -1,5 +1,3 @@
-package modelos;
-
 /*
  * The MIT License
  *
@@ -23,21 +21,35 @@ package modelos;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package modelos.enums;
 
 /**
  *
  * @author luis
  */
-public class Demo {
+public enum Genero {
     
+    MASCULINO(Boolean.FALSE, "Macho"),
+    FEMENINO(Boolean.TRUE, "Hembra");
     
-  
-    public static void main(String... args) {
-        
+    private Boolean puedeHacerVariasTareas;
+    private String sinonimo;
+
+    private Genero(Boolean puedeHacerVariasTareas, String sinonimo) {
+        this.puedeHacerVariasTareas = puedeHacerVariasTareas;
+        this.sinonimo = sinonimo;
+    }
+
+    
+
+    public Boolean getPuedeHacerVariasTareas() {
+        return puedeHacerVariasTareas;
+    }
+
+    public String getSinonimo() {
+        return sinonimo;
     }
     
-    public static void main2(String[] args) {
-        
-    }
+    
     
 }

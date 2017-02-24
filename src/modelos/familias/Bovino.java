@@ -23,10 +23,12 @@
  */
 package modelos.familias;
 
+import modelos.Animal;
+
 /**
  *
  * @author luis
  */
-public class Bovino {
+public class Bovino extends Animal{
     
 }

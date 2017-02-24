@@ -23,8 +23,6 @@
  */
 package test.modelos;
 
-import com.sun.javafx.font.FontResource;
-import java.util.Objects;
 import modelos.Animal;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -41,24 +39,18 @@ public class AnimalTest {
 
     @Before
     public void antesPrueba() {
-        System.out.println("antesPrueba");
     }
 
     @After
     public void despuesPrueba() {
-        System.out.println("despuesPrueba");
     }
 
     @BeforeClass
     public static void antesPruebas() {
-        System.out.println("antesPruebas");
-
     }
 
     @AfterClass
     public static void despuesPruebas() {
-        System.out.println("despuesPruebas");
-
     }
 
     @Test
@@ -77,6 +69,23 @@ public class AnimalTest {
     @Test
     public void testCambioColor() {
         Assert.assertTrue(true);
+    }
+    
+    @Test
+    public void testToString(){
+        Animal a1 = new Animal();
+        System.out.println("a1 = " + a1);
+    }
+    
+    @Test
+    public void testListarAnimales(){
+        Animal a1 = new Animal();
+        Assert.assertTrue(a1.getGenero().getPuedeHacerVariasTareas());
+        
+       Assert.assertEquals(a1.listarAnimales(
+               "Perro", "Gato", "Cocodrilo", "Perico"),
+               "Perro, Gato, Cocodrilo, Perico");
+        
     }
 
 }

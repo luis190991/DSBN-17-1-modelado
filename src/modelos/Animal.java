@@ -24,7 +24,11 @@
 package modelos;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
+import modelos.enums.Genero;
 
 /**
  * Modelo que reprenta todos los elementos de un animal.
@@ -42,17 +46,20 @@ public class Animal extends Object {
     private Region region;
     private Date fechaNacimiento;
     private Float peso;
+    private Genero genero;
 
     public Animal() {
         this.color = Color.ORANGE;
         this.region = null;
         this.fechaNacimiento = new Date();
         this.peso = 0.1f;
+        this.genero = Genero.FEMENINO;
     }
 
-    public Animal(Float peso) {
+    public Animal(Float peso, Genero genero) {
         this();
         this.peso = peso;
+        this.genero = genero;
     }
 
     /**
@@ -61,16 +68,18 @@ public class Animal extends Object {
      * @param region Se refiere al lugar de nacimeinto.
      * @param fechaNacimiento con formato dd/mm/yyyy del naciento del animal.
      * @param peso peso del animal expresado en kg.
+     * @param genero es un valor que solo puede ser MASCULINO y FEMENINO.
      */
-    public Animal(Region region, Date fechaNacimiento, Float peso) {
-        this(peso);
+    public Animal(Region region, Date fechaNacimiento, Float peso,
+            Genero genero) {
+        this(peso, genero);
         this.region = region;
         this.fechaNacimiento = fechaNacimiento;
     }
 
     public Animal(Color color, Region region, Date fechaNacimiento,
-            Float peso) {
-        this(region, fechaNacimiento, peso);
+            Float peso, Genero genero) {
+        this(region, fechaNacimiento, peso, genero);
         this.color = color;
 
     }
@@ -79,9 +88,10 @@ public class Animal extends Object {
         return "Saludo";
     }
 
-    public  String saludo2() {
+    public String saludo2() {
         return "Saludo " + this.fechaNacimiento;
     }
+
     /**
      * @return the color
      */
@@ -138,21 +148,50 @@ public class Animal extends Object {
         this.peso = peso;
     }
 
+    /**
+     * @return the genero
+     */
+    public Genero getGenero() {
+        return genero;
+    }
+
+    /**
+     * @param genero the genero to set
+     */
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
+
     @Override
     public boolean equals(Object obj) {
-        
+
         Boolean resultado = obj.getClass().equals(Animal.class);
-        if(resultado){
-            Animal animal = (Animal)obj;
+        if (resultado) {
+            Animal animal = (Animal) obj;
             resultado = this.color.equals(animal.color);
             resultado = resultado && (this.peso.equals(animal.peso));
             resultado = resultado && (this.fechaNacimiento
                     .equals(animal.fechaNacimiento));
         }
-        
+
         return resultado;
     }
-    
-    
+
+    public String listarAnimales(String... animales) {
+
+        List<String> animalesList = new ArrayList<>();
+        animalesList.addAll(Arrays.asList(animales));
+        String listado = "";
+        for (String animal : animalesList) {
+            listado = String.format("%s, %s", listado, animal);
+        }
+        return listado.substring(2);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s", this.region,
+                this.fechaNacimiento.toString());
+    }
 
 }

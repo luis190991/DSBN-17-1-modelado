@@ -1,5 +1,3 @@
-package modelos;
-
 /*
  * The MIT License
  *
@@ -23,21 +21,59 @@ package modelos;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package test.modelos;
+
+import java.util.ArrayList;
+import java.util.List;
+import modelos.Labrador;
+import modelos.Perro;
+import modelos.interfaces.Caminar;
+import modelos.personas.Adulto;
+import modelos.personas.Anciano;
+import modelos.personas.Bebe;
+import org.junit.Test;
 
 /**
  *
  * @author luis
  */
-public class Demo {
-    
-    
-  
-    public static void main(String... args) {
+public class PersonaTest {
+
+    @Test
+    public void test() {
+        List<Caminar> caminantes = new ArrayList<>();
+
+        Adulto a = new Adulto();
+        Anciano b = new Anciano();
+        Bebe c = new Bebe();
         
-    }
-    
-    public static void main2(String[] args) {
+        caminantes.add(a);
+        caminantes.add(b);
+        caminantes.add(c);
         
+        for (Caminar caminante : caminantes) {
+            caminante.moverse();
+        }
+        
+        Labrador l = new Labrador();
+        Perro p = new Perro() {
+            @Override
+            public void moverse() {
+                System.out.println("me muevo 1");
+            }
+        };
+        
+        
+        Perro p2 = new Perro() {
+            @Override
+            public void moverse() {
+                System.out.println("me muevo 2");
+            }
+        };
+        
+        
+        p.moverse();
+        p2.moverse();
     }
-    
+
 }

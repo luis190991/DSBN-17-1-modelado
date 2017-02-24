@@ -1,5 +1,3 @@
-package modelos;
-
 /*
  * The MIT License
  *
@@ -23,20 +21,17 @@ package modelos;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package modelos;
+
+import modelos.interfaces.Caminar;
 
 /**
  *
  * @author luis
  */
-public class Demo {
+public abstract class Perro implements Caminar{
     
-    
-  
-    public static void main(String... args) {
-        
-    }
-    
-    public static void main2(String[] args) {
+    public void comer(){
         
     }
     
